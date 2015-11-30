@@ -1,0 +1,44 @@
+<html>
+	<head>
+		<title>form validation</title>
+		<script type="text/javascript">
+			function validate() {
+				var age = document.getElementById("txtAge").value;
+				if (age) {
+					if (parseInt(age)) {
+						age = parseInt(age);
+						if (age < 1 || age > 150) {
+							alert("年龄必须介于 1 到 150 之间！");
+							return false;
+						}
+						else {
+							return true;
+						}
+					}
+					else {
+						alert("年龄必须为数字！");
+						return false;
+					}	
+				}
+				else {
+					alert("必须填写年龄！");
+					return false;
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<form method="get" action="form_get.aspx" onsubmit="return validate();">
+			<label for="txtUser">用户名(<u>U</u>):</label>
+			<input type="text" name="user" id="txtUser" accesskey="u" />
+			<br />
+			<label for="txtPwd">密&emsp;码(<u>P</u>):</label>
+			<input type="text" name="pwd" id="txtPwd" accesskey="p" />
+			<br />
+			<label for="txtAge">年&emsp;龄(<u>A</u>):</label>
+			<input type="text" name="age" id="txtAge" accesskey="a" />
+			<br />
+			<input type="submit" value="提交" />
+		</form>
+	</body>
+</html>
